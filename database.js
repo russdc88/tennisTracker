@@ -30,10 +30,11 @@ const getUserById = (request, response) => {
 }
 
 const createUser = (request, response) => {
-	const { forehandCount, backhandCount } = request.body
+	const { forehandCount, backhandCount, addCount, deuceCount, player } = request.body
+	var newPlayer = request.body
 	console.log(request.body)
 
-  pool.query('INSERT INTO test1 (forehandCount, backhandCount) VALUES ($1, $2)', [request.body.forehandValue, request.body.backhandValue], (error, results) => {
+  pool.query('INSERT INTO test1 (forehandCount, backhandCount, addSideCount, deuceSideCount,tennisplayer) VALUES ($1, $2, $3, $4, $5)', [newPlayer.forehandValue, newPlayer.backhandValue, newPlayer.addValue, newPlayer.deuceValue, newPlayer.player], (error, results) => {
     if (error) {
       throw error
 		}
