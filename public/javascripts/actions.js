@@ -72,9 +72,10 @@ $(document).ready(function(){
   }
 	
 	$.get("/api/data",function(data){
-		console.log(data)
+		var forehandArray = []
 		for(var i=0; i < data.length; i++){
-	
+			forehandArray.push(data[i].forehandcount)
+			console.log(forehandArray)
 			forehandPercentage = parseInt(data[i].forehandcount/(data[i].forehandcount + data[i].backhandcount)*100)
 			backhandPercentage = parseInt(data[i].backhandcount/(data[i].forehandcount + data[i].backhandcount)*100)
 			deucePercentage = parseInt(data[i].deucesidecount/(data[i].deucesidecount + data[i].addsidecount)*100)
@@ -100,6 +101,7 @@ $(document).ready(function(){
 			row.append(addColumn)
 
 		}
+		console.log(ss.mean(forehandArray))
 
 	})
 	
