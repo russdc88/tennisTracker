@@ -1,3 +1,12 @@
+body.login {
+	background-image: url("../images/loginBackground.jpg");
+	background-size: cover;
+}
+
+h1 {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 60px !important;
+}
 
 a {
   color: #00B7FF;
@@ -15,4 +24,6 @@ h5 {
 	width: 100px;
 	display: inline-block;
 }
+
+
 
