@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(express.static('public'));
 
-require('./routes/index')(app);
+require('./routes/htmlRoutes')(app);
 require('./routes/users')(app);
 
 
