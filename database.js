@@ -5,7 +5,7 @@ const pool = new Pool({
   user: 'russ',
   host: 'localhost',
   database: 'tennis',
-  password: 'wildcard88',
+  password: 'deuce',
   port: 5432,
 })
 
@@ -44,6 +44,7 @@ const createUser = (request, response) => {
 }
 
 
+
 const updateUser = (request, response) => {
   const id = parseInt(request.params.id)
   const { forehandCount, backhandCount } = request.body
@@ -71,10 +72,28 @@ const deleteUser = (request, response) => {
   })
 }
 
+
+
+const createCoach = (request, response) => {
+
+	var newCoach = request.body
+	console.log(request.body)
+
+  pool.query('INSERT INTO coaches (first_name, last_name, user_name, password, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6)', [newCoach.firstName, newCoach.lastName, newCoach.userName, newCoach.password, newCoach.email,newCoach.phone], (error, results) => {
+    if (error) {
+      throw error
+		}
+		console.log(results)
+    response.status(201).send(`User added with ID: ${results}`)
+	})
+
+}
+
 module.exports = {
   getUsers,
   getUserById,
   createUser,
   updateUser,
-  deleteUser,
+	deleteUser,
+	createCoach,
 }
