@@ -6,5 +6,5 @@ node_modules/
 
 .env
 
-'postgresql://russdc88:wildcard88@localhost:5432/tennis'
+
 

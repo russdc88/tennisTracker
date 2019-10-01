@@ -15,6 +15,10 @@ module.exports = function(app){
 		res.sendFile(path.join(__dirname,"../public/main.html"))
 	})
 
+	app.get("/groundstrokes", function(req, res){
+		res.sendFile(path.join(__dirname,"../public/groundstrokes.html"))
+	})
+
 }
 
 
