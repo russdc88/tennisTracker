@@ -11,12 +11,25 @@ module.exports = function(app){
 		res.sendFile(path.join(__dirname,"../public/signup.html"))
 	})
 
-	app.get("/main", function(req, res){
-		res.sendFile(path.join(__dirname,"../public/main.html"))
+	app.get("/main/:id", function(req, res){
+		if (req.session.authenticated){
+			res.sendFile(path.join(__dirname,"../public/main.html"))
+		}
+		else {
+			res.sendFile(path.join(__dirname,"../public/error.html"))
+		}
+
 	})
 
 	app.get("/groundstrokes", function(req, res){
-		res.sendFile(path.join(__dirname,"../public/groundstrokes.html"))
+		if (req.session.authenticated){
+
+			res.sendFile(path.join(__dirname,"../public/groundstrokes.html"))
+		}
+		else {
+			res.sendFile(path.join(__dirname,"../public/error.html"))
+		}
+
 	})
 
 }

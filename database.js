@@ -9,6 +9,7 @@ const pool = new Pool({
   port: 5432,
 })
 
+
 const getUsers = (request, response) => {
   pool.query('SELECT * FROM test1 ORDER BY id ASC', (error, results) => {
     if (error) {
@@ -86,7 +87,32 @@ const createCoach = (request, response) => {
 		console.log(results)
     response.status(201).send(`User added with ID: ${results}`)
 	})
+}
 
+const verifyLogin = (req, res) => {
+
+	console.log(req.body)
+
+
+	pool.query('SELECT * FROM coaches WHERE user_name = $1 AND password = $2', [req.body.username, req.body.password], (error, results) => {
+		if (error) {
+			throw error
+		}
+		if (results) {
+
+			console.log(results)
+			
+
+			req.session.authenticated = true;
+			req.session.user = results.rows[0];
+			console.log(req.session)
+
+
+			res.send({status:200, redirect: '/main/' + req.session.user.id}); 
+		}
+
+		
+	})
 }
 
 module.exports = {
@@ -96,4 +122,5 @@ module.exports = {
   updateUser,
 	deleteUser,
 	createCoach,
+	verifyLogin,
 }
