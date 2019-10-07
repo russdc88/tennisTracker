@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="/stylesheets/style.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+	<title>Player Sign up</title>
+</head>
+<body class="login">
+	<h1 class="text-center pt-4 mt-4 mb-4 pb-4"> Player Sign up</h1>
+
+	<form>
+		<div class="form-row">
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="playerFirstName" class="text-light">First Name</label>
+				<input type="text" class="form-control" id="player-first-name" placeholder="John">
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="playerLastName" class="text-light">Last Name</label>
+				<input type="text" class="form-control" id="player-last-name" placeholder="Smith">
+			</div>
+
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+		</div>
+
+		<div class="form-row">
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="swinging-hand" class="text-light">Swinging Hand</label>
+				<select class="form-control" id="swinging-hand">
+					<option>Left Handed</option>
+					<option>Right Handed</option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="backhand" class="text-light">Backhand Preference</label>
+				<select class="form-control" id="backhand-preference">
+					<option>Two Handed</option>
+					<option>One Handed</option>
+				</select>
+			</div>
+
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+		</div>
+
+		<div class="form-row">
+
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="height-feet" class="text-light">Height (Feet)</label>
+				<input type="number" class="form-control" id="height-feet" placeholder="5">
+			</div>
+
+			<div class="form-group col-md-3">
+				<label for="height-inches" class="text-light">Height (inches)</label>
+				<input type="number" class="form-control" id="height-inches" placeholder="11">
+			</div>
+
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+
+		</div>
+
+		<div class="form-row">
+
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+			<div class="form-group col-md-6">
+					<label for="gender" class="text-light">Gender</label>
+					<select class="form-control" id="gender">
+						<option>Male</option>
+						<option>Female</option>
+						<option>I'd rather not say</option>
+					</select>
+				</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<!-- blank -->
+			</div>
+
+			<div class="col-md-3">
+					<button type="submit" class="btn btn-primary" id='player-signup'>Sign Up</button>
+			</div>
+
+			<div class="col-md-3">
+					<button type="submit" class="btn btn-danger"> <a href="/main" style="text-decoration: none; color: white;">Back to Menu</a></button>
+			</div>
+
+		</div>
+
+
+
+		</div>
+	</form>
+
+
+
+</body>
+</html>
+
+<script src="./javascripts/playerSignup.js"></script>

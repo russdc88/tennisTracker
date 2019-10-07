@@ -6,7 +6,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'tennis',
   password: process.env.password,
-  port: 5432,
+  port: 5431,
 })
 
 
@@ -108,7 +108,7 @@ const verifyLogin = (req, res) => {
 			console.log(req.session)
 
 
-			res.send({status:200, redirect: '/main/' + req.session.user.id}); 
+			res.send({status:200, redirect: '/main'}); 
 		}
 
 		
