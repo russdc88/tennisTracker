@@ -21,7 +21,7 @@ function verify(Post) {
 	$.post('/api/login', Coach,
 	function(res){
 		console.log(res)
-
+ 
 		if (res.redirect) {
 			window.location.pathname = res.redirect; 
 		}

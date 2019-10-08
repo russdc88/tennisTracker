@@ -28,14 +28,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2">
-						<a href="/newplayer" class="btn btn-success"> Add New Player</a>
+						<a href="/newplayer" class="btn btn-success btn-block"> Add New Player</a>
 
 					</div>
 					<div class="col-md-8">
 					<!-- Blank space						 -->
 					</div>
 					<div class="col-md-2">
-						<button type="button" class="btn btn-danger">Sign out</button>
+						<button type="button" class="btn btn-danger btn-block" id="signout">Sign out</button>
 					</div>
 				</div>
 
@@ -76,3 +76,21 @@
 	
 </body>
 </html>
+
+
+<script>
+$('#signout').on('click',function(event){
+	event.preventDefault()
+	console.log("Signing out....")
+
+	$.post('/api/signout',{}, function(res){
+		
+		if (res.redirect){
+			window.location.pathname = res.redirect
+		}
+		console.log(res)
+	})
+
+})
+
+</script>

@@ -115,6 +115,26 @@ const verifyLogin = (req, res) => {
 	})
 }
 
+const logOut = (req, res) => {
+
+	console.log(req.session.user)
+
+	pool.query('SELECT * FROM coaches WHERE id = $1',[req.session.user.id], (error, results)=> {
+		if (error) {
+			throw error
+		}
+		if(results){
+			console.log (results)
+
+			req.session.authenticated = false;
+			res.send({status:200, redirect: '/'})
+		}
+	})
+}
+
+
+
+
 module.exports = {
   getUsers,
   getUserById,
@@ -123,4 +143,5 @@ module.exports = {
 	deleteUser,
 	createCoach,
 	verifyLogin,
+	logOut,
 }

@@ -17,7 +17,7 @@ $('#signup').on('click', function handleFormSubmit(event){
 	
 	coach.phone = $('#phone').val().trim()
 
-	console.log(coach)
+	
 
 
 	submitCoach(coach)
