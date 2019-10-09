@@ -3,6 +3,10 @@ body.login {
 	background-size: cover;
 }
 
+body.tracker{
+	background-color: #003151
+}
+
 h1 {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 60px !important;
@@ -14,16 +18,22 @@ a {
 
 
 .jumbotron {
-	background-color: #EF9566 !important;
+	background-color: #C6D729 !important;
 	color: #3E4551;
 }
 
 h5 {
-	background-color: #F8D0A9;
-	height: 100px;
-	width: 100px;
+	background-color: #C6D729;
+	padding: 40px 45px 40px 45px;
 	display: inline-block;
+	font-size: 30px !important;
 }
+
+h3 {
+	color: white;
+}
+
+
 
 
 
