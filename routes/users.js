@@ -9,4 +9,5 @@ module.exports = function(app){
 	app.post("/api/coach",db.createCoach)
 	app.post("/api/login", db.verifyLogin),
 	app.post("/api/signout", db.logOut)
+	app.post("/api/player",db.createPlayer)
 }

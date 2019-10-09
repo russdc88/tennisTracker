@@ -89,6 +89,21 @@ const createCoach = (request, response) => {
 	})
 }
 
+const createPlayer = (req, res) => {
+
+	var newPlayer = req.body
+	newPlayer.coach_id = req.session.user.id
+	console.log(newPlayer)
+
+  pool.query('INSERT INTO tennis_player (coach_id, player_first_name,player_last_name, hand_preference, backhand_preference, height, gender) VALUES ($1, $2, $3, $4, $5, $6, $7)', [newPlayer.coach_id,newPlayer.firstName, newPlayer.lastName, newPlayer.swingHand, newPlayer.backHand, newPlayer.height, newPlayer.gender], (error, results) => {
+    if (error) {
+      throw error
+		}
+		console.log(results)
+    res.status(201).send(`Player added with ID: ${res}`)
+	})
+}
+
 const verifyLogin = (req, res) => {
 
 	console.log(req.body)
@@ -142,6 +157,7 @@ module.exports = {
   updateUser,
 	deleteUser,
 	createCoach,
+	createPlayer,
 	verifyLogin,
 	logOut,
 }
