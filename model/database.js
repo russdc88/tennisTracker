@@ -148,6 +148,16 @@ const logOut = (req, res) => {
 }
 
 
+const findPlayers = (req, res) => {
+  pool.query('SELECT * FROM tennis_player WHERE coach_id = $1',[req.session.user.id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+
 
 
 module.exports = {
@@ -160,4 +170,5 @@ module.exports = {
 	createPlayer,
 	verifyLogin,
 	logOut,
+	findPlayers,
 }

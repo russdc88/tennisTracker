@@ -1,6 +1,20 @@
 $(document).ready(function(){
 
 	
+
+	$.get('/api/getplayer', function (data){
+		console.log(data)
+		for(var i = 0; i < data.length;i++){
+			var option = $('<option>')
+
+			option.attr("id", data[i].id)
+
+			option.text(data[i].player_first_name + " " + data[i].player_last_name)
+			
+			$('#player-data').append(option)
+		}
+
+	})
 	
 	var count1 = 0;
 	var count2 = 0;
@@ -71,38 +85,38 @@ $(document).ready(function(){
 		window.location.reload()
   }
 	
-	$.get("/api/data",function(data){
-		var forehandArray = []
-		for(var i=0; i < data.length; i++){
-			forehandArray.push(data[i].forehandcount)
-			console.log(forehandArray)
-			forehandPercentage = parseInt(data[i].forehandcount/(data[i].forehandcount + data[i].backhandcount)*100)
-			backhandPercentage = parseInt(data[i].backhandcount/(data[i].forehandcount + data[i].backhandcount)*100)
-			deucePercentage = parseInt(data[i].deucesidecount/(data[i].deucesidecount + data[i].addsidecount)*100)
-			addPercentage = parseInt(data[i].addsidecount/(data[i].deucesidecount + data[i].addsidecount)*100)
+// 	$.get("/api/data",function(data){
+// 		var forehandArray = []
+// 		for(var i=0; i < data.length; i++){
+// 			forehandArray.push(data[i].forehandcount)
+// 			console.log(forehandArray)
+// 			forehandPercentage = parseInt(data[i].forehandcount/(data[i].forehandcount + data[i].backhandcount)*100)
+// 			backhandPercentage = parseInt(data[i].backhandcount/(data[i].forehandcount + data[i].backhandcount)*100)
+// 			deucePercentage = parseInt(data[i].deucesidecount/(data[i].deucesidecount + data[i].addsidecount)*100)
+// 			addPercentage = parseInt(data[i].addsidecount/(data[i].deucesidecount + data[i].addsidecount)*100)
 
-			var row = $('<tr>');
-			var rowHeader = $('<th>')
-			rowHeader.attr("scope","row")
-			rowHeader.text(i+1)
-			var playerColumn = $('<td>').text(data[i].tennisplayer)
-			forehandColumn = $('<td>').text(data[i].forehandcount + ' (' + forehandPercentage + '%)')
-			backhandColumn = $('<td>').text(data[i].backhandcount + ' (' + backhandPercentage + '%)')
-			deuceColumn = $('<td>').text(data[i].deucesidecount + ' (' + deucePercentage + '%)')
-			addColumn = $('<td>').text(data[i].addsidecount + ' (' + addPercentage + '%)')
+// 			var row = $('<tr>');
+// 			var rowHeader = $('<th>')
+// 			rowHeader.attr("scope","row")
+// 			rowHeader.text(i+1)
+// 			var playerColumn = $('<td>').text(data[i].tennisplayer)
+// 			forehandColumn = $('<td>').text(data[i].forehandcount + ' (' + forehandPercentage + '%)')
+// 			backhandColumn = $('<td>').text(data[i].backhandcount + ' (' + backhandPercentage + '%)')
+// 			deuceColumn = $('<td>').text(data[i].deucesidecount + ' (' + deucePercentage + '%)')
+// 			addColumn = $('<td>').text(data[i].addsidecount + ' (' + addPercentage + '%)')
 
 
-			$('#data-list').append(row)
-			row.append(rowHeader)
-			row.append(playerColumn)
-			row.append(forehandColumn)
-			row.append(backhandColumn)
-			row.append(deuceColumn)
-			row.append(addColumn)
+// 			$('#data-list').append(row)
+// 			row.append(rowHeader)
+// 			row.append(playerColumn)
+// 			row.append(forehandColumn)
+// 			row.append(backhandColumn)
+// 			row.append(deuceColumn)
+// 			row.append(addColumn)
 
-		}
-		console.log(ss.mean(forehandArray))
+// 		}
+// 		console.log(ss.mean(forehandArray))
 
-	})
+// 	})
 	
 })
