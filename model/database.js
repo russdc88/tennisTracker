@@ -113,18 +113,23 @@ const verifyLogin = (req, res) => {
 		if (error) {
 			throw error
 		}
-		if (results) {
+		if (results.rowCount == 0) {
 
-			console.log(results)
-			
+			console.log("No User or invalid password")
+			res.status(400).send()
+		}
+
+		else if(results.rowCount == 1){
 
 			req.session.authenticated = true;
 			req.session.user = results.rows[0];
 			console.log(req.session)
-
-
+	
+	
 			res.send({status:200, redirect: '/main'}); 
 		}
+			
+
 
 		
 	})

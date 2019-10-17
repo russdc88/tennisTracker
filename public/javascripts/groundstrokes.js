@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 			option.text(data[i].player_first_name + " " + data[i].player_last_name)
 			
-			$('#player-data').append(option)
+			$('#tennis-player').append(option)
 		}
 
 	})
@@ -20,6 +20,7 @@ $(document).ready(function(){
 	var count2 = 0;
 	var count3 = 0;
 	var count4 = 0;
+	var count5 = 0;
 	
 	$(".forehand").click(function () {
 		count1++
@@ -41,13 +42,20 @@ $(document).ready(function(){
 		$(".deuceSide").html(count4)
 	})
 
+	$(".middle").click(function () {
+		count5++
+		$(".middle").html(count4)
+	})
+
 	
 	var backhandCount = $('.backhand');
 	var forehandCount = $('.forehand');
 	var addCount = $('.addSide');
 	var deuceCount = $('.deuceSide');
 	var submitData = $('#submit');
-	var tennisPlayer = $('#tennis-player')
+
+
+
 
 
 	
@@ -59,13 +67,15 @@ $(document).ready(function(){
 		var backhandValue = parseInt(backhandCount.html())
 		var addValue = parseInt(addCount.html())
 		var deuceValue = parseInt(deuceCount.html())
-		var player = tennisPlayer.val().trim()
+		player = $('#tennis-player').val().trim()
+
+	
 		
 		
 		console.log(typeof(forehandValue))
 		console.log(forehandValue,backhandValue,addValue,deuceValue,player)
 
-		submitPost({forehandValue,backhandValue,addValue,deuceValue,player})
+		// submitPost({forehandValue,backhandValue,addValue,deuceValue,player})
 	})
 
 
