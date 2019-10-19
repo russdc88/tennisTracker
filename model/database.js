@@ -30,12 +30,13 @@ const getUserById = (request, response) => {
   })
 }
 
-const createUser = (request, response) => {
-	const { forehandCount, backhandCount, addCount, deuceCount, player } = request.body
+const addGroundstrokes = (request, response) => {
+	request.body
 	var newPlayer = request.body
-	console.log(request.body)
+	console.log(newPlayer)
 
-  pool.query('INSERT INTO test1 (forehandCount, backhandCount, addSideCount, deuceSideCount,tennisplayer) VALUES ($1, $2, $3, $4, $5)', [newPlayer.forehandValue, newPlayer.backhandValue, newPlayer.addValue, newPlayer.deuceValue, newPlayer.player], (error, results) => {
+	pool.query('INSERT INTO groundstrokes (forehand_count, backhand_count, add_count, middle_count, deuce_count, player_id) VALUES ($1, $2, $3, $4, $5, $6)', [newPlayer.forehandValue, newPlayer.backhandValue, newPlayer.addValue, newPlayer.middleValue,
+	newPlayer.deuceValue, newPlayer.playerID], (error, results) => {
     if (error) {
       throw error
 		}
@@ -84,8 +85,11 @@ const createCoach = (request, response) => {
     if (error) {
       throw error
 		}
-		console.log(results)
-    response.status(201).send(`User added with ID: ${results}`)
+		else {
+			console.log(results)
+			response.send({status: 200})
+
+		}
 	})
 }
 
@@ -116,7 +120,7 @@ const verifyLogin = (req, res) => {
 		if (results.rowCount == 0) {
 
 			console.log("No User or invalid password")
-			res.status(400).send()
+			res.send({status: 400})
 		}
 
 		else if(results.rowCount == 1){
@@ -146,6 +150,7 @@ const logOut = (req, res) => {
 		if(results){
 			console.log (results)
 
+
 			req.session.authenticated = false;
 			res.send({status:200, redirect: '/'})
 		}
@@ -168,7 +173,7 @@ const findPlayers = (req, res) => {
 module.exports = {
   getUsers,
   getUserById,
-  createUser,
+  addGroundstrokes,
   updateUser,
 	deleteUser,
 	createCoach,

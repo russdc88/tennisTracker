@@ -12,7 +12,7 @@ module.exports = function(app){
 	})
 
 	app.get("/main", function(req, res){
-		if (req.session.authenticated = true){
+		if (req.session.authenticated){
 			res.sendFile(path.join(__dirname,"../public/main.html"))
 		}
 		else {

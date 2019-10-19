@@ -26,5 +26,11 @@ function verify(Post) {
 			window.location.pathname = res.redirect; 
 		}
 
+		if (res.status == 400) {
+			var message = $("#error-message").html ("Incorrect Username or password, please try again")
+			message.css('color','white')
+			
+		}
+
 	})
 }

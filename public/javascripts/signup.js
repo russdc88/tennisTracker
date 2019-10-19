@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+	function showModal() {
+		$('#exampleModal').modal('show')
+	}
+
 var coach = {};
 
 $('#signup').on('click', function handleFormSubmit(event){
@@ -27,7 +31,9 @@ $('#signup').on('click', function handleFormSubmit(event){
 
 function submitCoach(Post) {
 	$.post('/api/coach', Post, function(res){
-		console.log(res)
+		if (res.status == 200){
+			showModal()
+		}
 	})
 }
 

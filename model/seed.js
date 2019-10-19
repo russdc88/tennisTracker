@@ -15,3 +15,9 @@ pool.query("CREATE TABLE tennis_player(id SERIAL PRIMARY KEY,coach_id INT REFERE
 
 });
 
+pool.query("CREATE TABLE groundstrokes(id SERIAL PRIMARY KEY, player_id INT REFERENCES tennis_player(id), forehand_count INT NOT NULL, backhand_count INT NOT NULL, add_count INT NOT NULL, middle_count INT NOT NULL, deuce_count INT NOT NULL, created_date DATE NOT NULL DEFAULT CURRENT_DATE)", (err, res) => {
+	console.log(err,res);
+	pool.end();
+
+})
+

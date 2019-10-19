@@ -7,92 +7,88 @@ $(document).ready(function(){
 		for(var i = 0; i < data.length;i++){
 			var option = $('<option>')
 
-			option.attr("id", data[i].id)
+			option.attr("data-player", data[i].id)
 
 			option.text(data[i].player_first_name + " " + data[i].player_last_name)
 			
 			$('#tennis-player').append(option)
 		}
 
+		collectData()
+
 	})
 	
-	var count1 = 0;
-	var count2 = 0;
-	var count3 = 0;
-	var count4 = 0;
-	var count5 = 0;
-	
-	$(".forehand").click(function () {
-		count1++
-		$(".forehand").html(count1)
-	})
-	
-	$(".backhand").click(function () {
-		count2++
-		$(".backhand").html(count2)
-	})
+	function collectData() {
 
-	$(".addSide").click(function () {
-		count3++
-		$(".addSide").html(count3)
-	})
-	
-	$(".deuceSide").click(function () {
-		count4++
-		$(".deuceSide").html(count4)
-	})
-
-	$(".middle").click(function () {
-		count5++
-		$(".middle").html(count4)
-	})
-
-	
-	var backhandCount = $('.backhand');
-	var forehandCount = $('.forehand');
-	var addCount = $('.addSide');
-	var deuceCount = $('.deuceSide');
-	var submitData = $('#submit');
-
-
-
-
-
-	
-	
-	$(submitData).on("click",function handleFormSubmit(event){
-		event.preventDefault();
+		var count1 = 0;
+		var count2 = 0;
+		var count3 = 0;
+		var count4 = 0;
+		var count5 = 0;
 		
-		var forehandValue = parseInt(forehandCount.html())
-		var backhandValue = parseInt(backhandCount.html())
-		var addValue = parseInt(addCount.html())
-		var deuceValue = parseInt(deuceCount.html())
-		player = $('#tennis-player').val().trim()
-
-	
+		$(".forehand").click(function () {
+			count1++
+			$(".forehand").html(count1)
+		})
+		
+		$(".backhand").click(function () {
+			count2++
+			$(".backhand").html(count2)
+		})
+		
+		$(".addSide").click(function () {
+			count3++
+			$(".addSide").html(count3)
+		})
+		
+		$(".deuceSide").click(function () {
+			count4++
+			$(".deuceSide").html(count4)
+		})
+		
+		$(".middle").click(function () {
+			count5++
+			$(".middle").html(count5)
+		})
 		
 		
-		console.log(typeof(forehandValue))
-		console.log(forehandValue,backhandValue,addValue,deuceValue,player)
+		var backhandCount = $('.backhand');
+		var forehandCount = $('.forehand');
+		var addCount = $('.addSide');
+		var deuceCount = $('.deuceSide');
+		var middleCount = $('.middle');
 
-		// submitPost({forehandValue,backhandValue,addValue,deuceValue,player})
-	})
+		var submitData = $('#submit');
+
+		var groundstrokes = {}
+		
+		$(submitData).on("click",function handleFormSubmit(event){
+			event.preventDefault();
+			
+			groundstrokes.forehandValue = parseInt(forehandCount.html())
+			groundstrokes.backhandValue = parseInt(backhandCount.html())
+			groundstrokes.addValue = parseInt(addCount.html())
+			groundstrokes.deuceValue = parseInt(deuceCount.html())
+			groundstrokes.middleValue = parseInt(middleCount.html())
+
+			groundstrokes.playerID = $('#tennis-player').children(":selected").data("player")
+			
+
+			console.log(groundstrokes)
+			
+			submitPost(groundstrokes)
+		})
+	}
 
 
 	
 	
 	function submitPost(Post) {
-		$.post("/api/data", Post, function(res) {
-			console.log(Post)
-			console.log(res)
+		$.post("/api/groundstrokes", Post, function(res) {
+		
 		});
 		
-		forehandCount.html(0)
-		backhandCount.html(0)
-		addCount.html(0)
-		deuceCount.html(0)
-		tennisPlayer.val("")
-		window.location.reload()
+	
   }
 	
 // 	$.get("/api/data",function(data){
