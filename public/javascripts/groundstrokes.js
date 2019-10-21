@@ -85,6 +85,10 @@ $(document).ready(function(){
 	
 	function submitPost(Post) {
 		$.post("/api/groundstrokes", Post, function(res) {
+
+			if (res.status == 200){
+				$('#groundstrokeModal').modal('show')
+			}
 		
 		});
 		

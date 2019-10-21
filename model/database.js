@@ -40,8 +40,9 @@ const addGroundstrokes = (request, response) => {
     if (error) {
       throw error
 		}
+		
 		console.log(results)
-    response.status(201).send(`User added with ID: ${results}`)
+		response.send({status: 200})
   })
 }
 
