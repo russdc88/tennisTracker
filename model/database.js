@@ -103,8 +103,11 @@ const createPlayer = (req, res) => {
     if (error) {
       throw error
 		}
-		console.log(results)
-    res.status(201).send(`Player added with ID: ${res}`)
+		else {
+			console.log(results)
+			res.send({status: 200})
+
+		}
 	})
 }
 

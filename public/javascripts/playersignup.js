@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+
+function showModal() {
+		$('#playerSignupModal').modal('show')
+	}
+
 var player = {}
 
 $('#player-signup').on('click', function handleFormSubmit(event){
@@ -27,7 +32,9 @@ function createPlayer (newplayer) {
 	console.log(newplayer)
 
 	$.post('/api/player',newplayer,function(res){
-		console.log(res)
+		if (res.status == 200){
+			showModal()
+		}	
 	})
 
 }
