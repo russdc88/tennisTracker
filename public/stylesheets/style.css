@@ -29,12 +29,30 @@ h5 {
 	font-size: 30px !important;
 }
 
-h3 {
+h3, h4 {
 	color: white;
 }
 
+
+
 .boxform {
 	background-color: rgba(0,0,0,0.5);
+}
+
+
+
+@media (max-width: 575.98px) { 
+
+.mobile {
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+}
+
+h4 {
+	
+	font-size: 23px !important;
+}
+
 }
 
 

@@ -23,7 +23,7 @@
 <body class="login">
 	<h1 class="text-center pt-4 mt-4 mb-4 pb-4"> Player Sign up</h1>
 
-	<form>
+	<form class="mobile">
 		<div class="form-row">
 			<div class="col-md-3">
 				<!-- blank -->
@@ -113,20 +113,17 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-3">
 				<!-- blank -->
 			</div>
 
-			<div class="col-md-3">
-					<button type="submit" class="btn btn-primary" id='player-signup'>Sign Up</button>
+			<div class="col-3">
+					<button type="submit" class="btn btn-primary" id='player-signup'>SignUp</button>
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-3">
 
-				<a href="/main" class="btn btn-danger"> Back to Menu</a>
-
-
-
+				<a href="/main" class="btn btn-danger">Menu</a>
 			</div>
 
 		</div>
@@ -139,10 +136,10 @@
 <!-- Modal for the signup-->
 
 <div class="modal fade text-center" id="playerSignupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header text-center">
-					<h4 class="modal-title" id="exampleModalLabel">Player SignUp Successful!</h5>
+					<p class="modal-title" id="exampleModalLabel">Player SignUp Successful!</p>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

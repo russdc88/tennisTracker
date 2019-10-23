@@ -32,6 +32,17 @@ module.exports = function(app){
 
 	})
 
+	app.get("/serves", function(req, res){
+		if (req.session.authenticated){
+
+			res.sendFile(path.join(__dirname,"../public/serves.html"))
+		}
+		else {
+			res.sendFile(path.join(__dirname,"../public/error.html"))
+		}
+
+	})
+
 
 	app.get("/newplayer", function(req, res){
 

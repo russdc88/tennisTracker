@@ -1,12 +1,12 @@
 <html>
 
 <head>
-	<title>Tennis Tracker</title>
+	<title>Serve Tracker</title>
 	<link rel="stylesheet" href="/stylesheets/style.css">
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,8 +23,8 @@
 
 
 		
-				<h1 class="text-center pt-4 mt-4 mb-4 pb-4 text-light">
-						Groundstroke Tracker
+				<h1 class="text-center pt-4 mt-4 mb-4 pb-2 text-light">
+						Serve Tracker
 					</h1>
 					<div class="row">
 						<div class="col-3">
@@ -43,57 +43,65 @@
 					</div>
 
 			<div class="row">
-				<div class="text-center col-6">
-					<h3>Forehand</h3>
-					<h5 class="forehand ">0</h5>
+				<div class="text-center col-4">
+					<h4>Deuce Wide</h4>
+					<h5 class="deuce-wide ">0</h5>
 				</div>
-				<div class="col-6 text-center">
-					<h3>Backhand</h3>
-					<h5 class="backhand">0</h5>
+				<div class="text-center col-4">
+					<h4>Deuce Middle</h4>
+					<h5 class="deuce-middle">0</h5>
+				</div>
+				<div class="col-4 text-center">
+					<h4>Deuce Tee</h4>
+					<h5 class="deuce-tee">0</h5>
 				</div>
 			</div>
 
 
 			<div class="row">
-				<div class="col-4">
-
+				
+				<div class="col-4 text-center">
+						<h4>1st Serve In </h3>
+						<h5 class="first-serve">0</h5>
 				</div>
 
 				<div class="col-4 text-center">
-						<h3>Middle </h3>
-						<h5 class="middle">0</h5>
+						<h4>Double Fault </h3>
+						<h5 class="double-fault">0</h5>
 				</div>
 
-				<div class="col-4">
-
+				<div class="col-4 text-center">
+					<h4>2nd Serve In</h4>
+					<h5 class="second-serve">0</h5>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="text-center col-6">
-					<h3>Ad Side</h3>
-					<h5 class="addSide">0</h5>
+					<div class="col-4 text-center">
+							<h4>Advantage Wide</h4>
+							<h5 class="add-wide">0</h5>
+						</div>
+				
+				<div class="col-4 text-center">
+					<h4>Advantage Middle</h4>
+					<h5 class="ad-middle">0</h5>
 				</div>
-				<div class="col-6 text-center">
-					<h3>Deuce Side</h3>
-					<h5 class="deuceSide">0</h5>
+				<div class="col-4 text-center">
+					<h4>Advantage Tee</h4>
+					<h5 class="ad-tee">0</h5>
 				</div>
 			</div>
 
 			<h1 id="submit" class="text-center text-light">Submit</h1>
 
-
-
-
-
 		</div>
 	</div>
 
-	<div class="modal fade text-center" id="groundstrokeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade text-center" id="serveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header text-center">
-						<p class="modal-title" id="serveModalLabel">Groundstroke data Submitted!</p>
+						<p class="modal-title" id="groundstrokeModalLabel">Serve Data Submitted!</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -115,5 +123,4 @@
 
 </html>
 
-<script src="./javascripts/groundstrokes.js"></script>
-
+<script src="./javascripts/serves.js"></script>

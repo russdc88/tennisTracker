@@ -40,6 +40,22 @@ const addGroundstrokes = (request, response) => {
     if (error) {
       throw error
 		}
+
+		console.log(results)
+		response.send({status: 200})
+  })
+}
+
+const addServes = (request, response) => {
+	request.body
+	var newPlayer = request.body
+	console.log(newPlayer)
+
+	pool.query('INSERT INTO serves (deuce_wide_count, deuce_middle_count, deuce_tee_count, first_serve_count, second_serve_count, double_fault_count, ad_wide_count, ad_middle_count, ad_tee_count, player_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [newPlayer.deuce_wide, newPlayer.deuce_middle, newPlayer.deuce_tee, newPlayer.first_serve,
+	newPlayer.second_serve, newPlayer.double_fault, newPlayer.ad_wide, newPlayer.ad_middle, newPlayer.ad_tee, newPlayer.playerID], (error, results) => {
+    if (error) {
+      throw error
+		}
 		
 		console.log(results)
 		response.send({status: 200})
@@ -177,7 +193,8 @@ const findPlayers = (req, res) => {
 module.exports = {
   getUsers,
   getUserById,
-  addGroundstrokes,
+	addGroundstrokes,
+	addServes,
   updateUser,
 	deleteUser,
 	createCoach,

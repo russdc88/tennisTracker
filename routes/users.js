@@ -11,4 +11,5 @@ module.exports = function(app){
 	app.post("/api/signout", db.logOut)
 	app.post("/api/player",db.createPlayer)
 	app.get('/api/getplayer',db.findPlayers)
+	app.post("/api/serves", db.addServes)
 }
